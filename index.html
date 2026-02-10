@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WSCA | Worcestershire Society of Chartered Architects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <style>
+        :root {
+            --c-bg: #E3E1DC; 
+            --c-dark: #121212;
+            --c-accent: #374336; 
+            --font-display: 'Syncopate', sans-serif;
+            --font-body: 'Manrope', sans-serif;
+        }
+        body { background-color: var(--c-bg); color: var(--c-dark); font-family: var(--font-body); margin: 0; overflow-x: hidden; opacity: 0; }
+        .wrapper { position: relative; z-index: 10; background-color: var(--c-bg); margin-bottom: 100vh; box-shadow: 0 50px 100px rgba(0,0,0,0.5); }
+        .word-wrap { display: inline-block; overflow: hidden; vertical-align: top; }
+        .word-inner { display: inline-block; transform: translateY(110%); }
+        .loader { position: fixed; inset: 0; background: #000; z-index: 10000; display: flex; justify-content: center; align-items: center; color: #fff; }
+        .loader-text { font-family: var(--font-display); font-size: 5vw; font-weight: 700; }
+        .loader-bar { position: absolute; bottom: 0; left: 0; height: 4px; background: #fff; width: 0%; }
+        .stack-section { padding: 10vh 0; background: var(--c-dark); color: #E3E1DC; position: relative; }
+        .stack-container { width: 100%; max-width: 1400px; margin: 0 auto; padding-bottom: 10vh; }
+        .card-item { position: sticky; top: 10vh; height: 80vh; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 5vh; }
+        .card-inner { width: 90%; height: 100%; background: #1a1a1a; border: 1px solid rgba(255,255,255,0.1); display: grid; grid-template-columns: 1fr 1.2fr; overflow: hidden; }
+        .card-content { padding: 4rem; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-img-wrap { position: relative; width: 100%; height: 100%; overflow: hidden; }
+        .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.5s ease; }
+        .footer-sticky { position: fixed; bottom: 0; left: 0; width: 100%; height: 100vh; z-index: 1; background: #111; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .display { font-family: var(--font-display); }
+        .noise-overlay { position: fixed; inset: 0; pointer-events: none; z-index: 9000; opacity: 0.05; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E"); }
+    </style>
+</head>
+<body>
+
+    <div class="noise-overlay"></div>
+
+    <div class="loader">
+        <div class="loader-text uppercase">WSCA</div>
+        <div class="loader-bar"></div>
+    </div>
+
+    <nav class="fixed top-0 w-full p-8 flex justify-between items-center z-50 mix-blend-difference text-white">
+        <div class="display font-bold text-xl tracking-tighter">WSCA</div>
+        <div class="hidden md:flex gap-10 text-xs uppercase tracking-widest">
+            <a href="#work">Work</a>
+            <a href="#society">Society</a>
+            <a href="mailto:mail@ribaworcestershire.co.uk">Contact</a>
+        </div>
+    </nav>
+
+    <div class="wrapper">
+        
+        <section class="h-screen relative flex items-center justify-center overflow-hidden">
+            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/482e7b6a-168c-4d0d-b35d-0e2ff4014577_3840w.webp" class="absolute inset-0 w-full h-full object-cover brightness-75 hero-img" alt="Hero">
+            <div class="relative z-10 text-center text-white mix-blend-difference">
+                <h1 class="display text-[10vw] leading-none hero-text overflow-hidden">
+                    <span class="block translate-y-full">WORCESTERSHIRE</span>
+                </h1>
+                <h1 class="display text-[10vw] leading-none hero-text overflow-hidden">
+                    <span class="block translate-y-full">ARCHITECTS</span>
+                </h1>
+                <p class="mt-8 text-sm uppercase tracking-[0.5em] opacity-0 hero-fade">Society of Chartered Architects</p>
+            </div>
+        </section>
+
+        <section id="intro" class="py-32 px-6 md:px-20 grid md:grid-cols-2 gap-16 max-w-[1800px] mx-auto bg-[var(--c-bg)]">
+            <div>
+                <h2 class="display text-4xl md:text-5xl leading-tight split-animate">
+                    Excellence in <br><span class="text-[var(--c-accent)]">Design.</span>
+                </h2>
+            </div>
+            <div class="text-xl font-light leading-relaxed text-gray-700">
+                <p class="mb-8 split-animate">The Worcestershire Society of Chartered Architects represents the highest standards of architectural practice across the region.</p>
+                <div class="h-px w-full bg-black/10 my-8"></div>
+                <div class="flex gap-12 text-sm uppercase tracking-widest split-animate">
+                    <div>RIBA Worcestershire</div>
+                    <div>Est. 1851</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="stack-section">
+            <div class="text-center mb-20 px-6">
+                <div class="text-xs uppercase tracking-widest mb-4 opacity-50">Selected Portfolio</div>
+                <h2 class="display text-5xl md:text-7xl">WSCA PROJECTS</h2>
+            </div>
+
+            <div class="stack-container">
+                <div class="card-item">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <div>
+                                <div class="text-5xl display mb-2 text-[var(--c-bg)] opacity-30">01</div>
+                                <h3 class="text-3xl font-bold uppercase">WSCA Residential</h3>
+                                <p class="text-sm mt-4 opacity-70 uppercase tracking-widest">Award Winning Housing</p>
+                            </div>
+                            <button class="text-left uppercase tracking-widest text-xs border-b border-white/30 pb-2 w-max">View Project</button>
+                        </div>
+                        <div class="card-img-wrap">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0dccab47-16b0-4716-9e1a-b97f124e3031_1600w.webp" class="card-img" alt="Project 1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <div>
+                                <div class="text-5xl display mb-2 text-[var(--c-bg)] opacity-30">02</div>
+                                <h3 class="text-3xl font-bold uppercase">WSCA Sustainable</h3>
+                                <p class="text-sm mt-4 opacity-70 uppercase tracking-widest">Environmental Excellence</p>
+                            </div>
+                            <button class="text-left uppercase tracking-widest text-xs border-b border-white/30 pb-2 w-max">View Project</button>
+                        </div>
+                        <div class="card-img-wrap">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/952269bf-60f5-48dc-afce-13953bead1eb_1600w.webp" class="card-img" alt="Project 2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="society" class="py-32 px-6 md:px-20 grid md:grid-cols-2 gap-16 max-w-[1800px] mx-auto bg-[var(--c-bg)] border-t border-black/5">
+            <div>
+                <h2 class="display text-4xl md:text-5xl leading-tight split-animate">
+                    WSCA <br><span class="text-[var(--c-accent)]">Society.</span>
+                </h2>
+            </div>
+            <div class="text-xl font-light leading-relaxed text-gray-700">
+                <p class="mb-8 split-animate">
+                    We are a community of architects representing and promoting architects and architecture in Worcestershire. 
+                    We aim to champion the achievements, promote the successes and nurture the talents of the present and future 
+                    architects of Worcestershire and contribute to raising the standard of architecture across the county.
+                </p>
+                <div class="h-px w-full bg-black/10 my-8"></div>
+                <div class="flex gap-12 text-sm uppercase tracking-widest split-animate">
+                    <div>Representing Architects</div>
+                    <div>Raising Standards</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-40 bg-[#E3E1DC] text-center flex flex-col items-center justify-center relative z-10">
+            <h2 class="display text-3xl md:text-5xl mb-8 uppercase">Designing the Future</h2>
+            <div class="h-16 w-px bg-black/20"></div>
+        </section>
+
+    </div> 
+
+    <footer class="footer-sticky">
+        <div class="relative z-10 text-center">
+            <div class="text-xs uppercase tracking-[0.3em] mb-4 text-gray-500">Contact the Society</div>
+            <a href="mailto:mail@ribaworcestershire.co.uk" class="display text-[8vw] leading-none hover:text-gray-400 transition-colors">
+                LET'S TALK
+            </a>
+            <div class="mt-20 text-[10px] text-gray-700 uppercase tracking-widest">
+                © 2026 WSCA ARCHITECTURE
+            </div>
+        </div>
+        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1c6b6980-54e4-4d8c-9ff6-e09b844d7b01_3840w.webp" class="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none">
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        const lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+        function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+        requestAnimationFrame(raf);
+
+        function splitTextToWords(element) {
+            const text = element.innerText;
+            const words = text.split(' ');
+            element.innerHTML = '';
+            words.forEach(word => {
+                const wordWrap = document.createElement('span');
+                wordWrap.classList.add('word-wrap');
+                wordWrap.innerHTML = `<span class="word-inner">${word}&nbsp;</span>`;
+                element.appendChild(wordWrap);
+            });
+        }
+
+        document.querySelectorAll('.split-animate').forEach(el => splitTextToWords(el));
+
+        const loadTl = gsap.timeline({ onComplete: () => { document.body.style.opacity = 1; initSite(); } });
+        loadTl.to('.loader-bar', { width: '100%', duration: 1.5, ease: 'power2.inOut' })
+              .to('.loader-text', { y: -50, opacity: 0, duration: 0.5 })
+              .to('.loader', { yPercent: -100, duration: 1, ease: 'power4.inOut' });
+
+        function initSite() {
+            gsap.to('.hero-text span', { y: 0, stagger: 0.1, duration: 1.5, ease: 'power4.out' });
+            gsap.to('.hero-fade', { opacity: 1, duration: 1, delay: 0.5 });
+            gsap.to('.hero-img', { yPercent: 30, ease: 'none', scrollTrigger: { trigger: '.hero-img', start: 'top top', end: 'bottom top', scrub: true } });
+            document.querySelectorAll('.split-animate').forEach(el => {
+                gsap.to(el.querySelectorAll('.word-inner'), { y: "0%", duration: 1, ease: "power3.out", stagger: 0.02, scrollTrigger: { trigger: el, start: "top 85%" } });
+            });
+            const cards = gsap.utils.toArray('.card-item');
+            cards.forEach((card, i) => {
+                const nextCard = cards[i+1];
+                if (nextCard) {
+                    gsap.to(card.querySelector('.card-inner'), { scale: 0.9, opacity: 0.4, ease: "none", scrollTrigger: { trigger: nextCard, start: "top bottom", end: "top 10vh", scrub: true } });
+                }
+            });
+        }
+    </script>
+</body>
+</html>

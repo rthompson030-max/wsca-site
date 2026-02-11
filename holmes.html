@@ -12,15 +12,13 @@
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
     <style>
         :root {
-            --c-bg: #000000; 
-            --c-dark: #FFFFFF;
-            --c-accent: #888888; 
+            --c-bg: #f3f3f3; /* The original light contrast color */
+            --c-dark: #000000;
             --font-display: 'Syncopate', sans-serif;
             --font-body: 'Manrope', sans-serif;
         }
         body { background-color: #000; color: #fff; font-family: var(--font-body); margin: 0; overflow-x: hidden; opacity: 0; }
         
-        /* Seamless Wrapper */
         .wrapper { position: relative; z-index: 10; background-color: #000; margin-bottom: 100vh; }
         
         .word-wrap { display: inline-block; overflow: hidden; vertical-align: top; }
@@ -30,10 +28,8 @@
         .loader-text { font-family: var(--font-display); font-size: 5vw; font-weight: 700; }
         .loader-bar { position: absolute; bottom: 0; left: 0; height: 4px; background: #fff; width: 0%; }
         
-        /* Navigation with Blur Effect */
         nav { backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); background: rgba(0,0,0,0.2); }
 
-        /* THE WOW FACTOR STACK */
         .stack-section { padding: 10vh 0; background: #000; color: #FFFFFF; position: relative; }
         .stack-container { width: 100%; max-width: 1400px; margin: 0 auto; }
         .card-item { position: sticky; top: 12vh; height: 75vh; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 15vh; }
@@ -76,15 +72,15 @@
             </div>
         </section>
 
-        <section id="studio" class="py-40 px-6 md:px-20 grid md:grid-cols-2 gap-16 max-w-[1800px] mx-auto bg-black text-white">
+        <section id="studio" class="py-40 px-6 md:px-20 grid md:grid-cols-2 gap-16 max-w-[1800px] mx-auto bg-[#f3f3f3] text-black">
             <div>
                 <h2 class="display text-4xl md:text-5xl leading-tight split-animate">
-                    Visionary <br><span class="text-gray-600">Structure.</span>
+                    Visionary <br><span class="text-gray-400">Structure.</span>
                 </h2>
             </div>
-            <div class="text-xl font-light leading-relaxed text-gray-400">
+            <div class="text-xl font-light leading-relaxed text-gray-800">
                 <p class="mb-8 split-animate">Holmes Architects delivers innovative design solutions that bridge the gap between historic context and modern living. Our studio is built on the philosophy that great architecture should be felt, not just seen.</p>
-                <div class="h-px w-full bg-white/10 my-8"></div>
+                <div class="h-px w-full bg-black/10 my-8"></div>
                 <div class="flex gap-12 text-sm uppercase tracking-widest split-animate">
                     <div>Chartered Practice</div>
                     <div>Est. 1989</div>
@@ -166,7 +162,6 @@
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
-        
         const lenis = new Lenis({ duration: 1.2, smooth: true });
         function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
         requestAnimationFrame(raf);
@@ -191,30 +186,15 @@
         function initSite() {
             gsap.to('.hero-text span', { y: 0, stagger: 0.1, duration: 1, ease: 'power4.out' });
             gsap.to('.hero-fade', { opacity: 1, duration: 1, delay: 0.5 });
-
             document.querySelectorAll('.split-animate').forEach(el => {
-                gsap.to(el.querySelectorAll('.word-inner'), { 
-                    y: "0%", 
-                    duration: 1, 
-                    scrollTrigger: { trigger: el, start: "top 85%" } 
-                });
+                gsap.to(el.querySelectorAll('.word-inner'), { y: "0%", duration: 1, scrollTrigger: { trigger: el, start: "top 85%" } });
             });
-
             const cards = gsap.utils.toArray('.card-item');
             cards.forEach((card, i) => {
                 const inner = card.querySelector('.card-inner');
                 const nextCard = cards[i + 1];
                 if (nextCard) {
-                    gsap.to(inner, {
-                        scale: 0.92,
-                        opacity: 0.2,
-                        scrollTrigger: {
-                            trigger: nextCard,
-                            start: "top bottom",
-                            end: "top 10%",
-                            scrub: true
-                        }
-                    });
+                    gsap.to(inner, { scale: 0.92, opacity: 0.2, scrollTrigger: { trigger: nextCard, start: "top bottom", end: "top 10%", scrub: true } });
                 }
             });
         }

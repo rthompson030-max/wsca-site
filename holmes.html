@@ -12,25 +12,32 @@
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
     <style>
         :root {
-            --c-bg: #FFFFFF; 
-            --c-dark: #000000;
-            --c-accent: #6b7280; 
+            --c-bg: #000000; 
+            --c-dark: #FFFFFF;
+            --c-accent: #888888; 
             --font-display: 'Syncopate', sans-serif;
             --font-body: 'Manrope', sans-serif;
         }
-        body { background-color: var(--c-bg); color: var(--c-dark); font-family: var(--font-body); margin: 0; overflow-x: hidden; opacity: 0; }
-        .wrapper { position: relative; z-index: 10; background-color: var(--c-bg); margin-bottom: 100vh; }
+        body { background-color: #000; color: #fff; font-family: var(--font-body); margin: 0; overflow-x: hidden; opacity: 0; }
+        
+        /* Seamless Wrapper */
+        .wrapper { position: relative; z-index: 10; background-color: #000; margin-bottom: 100vh; }
+        
         .word-wrap { display: inline-block; overflow: hidden; vertical-align: top; }
         .word-inner { display: inline-block; transform: translateY(110%); }
+        
         .loader { position: fixed; inset: 0; background: #000; z-index: 10000; display: flex; justify-content: center; align-items: center; color: #fff; }
         .loader-text { font-family: var(--font-display); font-size: 5vw; font-weight: 700; }
         .loader-bar { position: absolute; bottom: 0; left: 0; height: 4px; background: #fff; width: 0%; }
         
+        /* Navigation with Blur Effect */
+        nav { backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); background: rgba(0,0,0,0.2); }
+
         /* THE WOW FACTOR STACK */
-        .stack-section { padding: 10vh 0; background: #000000; color: #FFFFFF; position: relative; }
+        .stack-section { padding: 10vh 0; background: #000; color: #FFFFFF; position: relative; }
         .stack-container { width: 100%; max-width: 1400px; margin: 0 auto; }
-        .card-item { position: sticky; top: 10vh; height: 80vh; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 10vh; }
-        .card-inner { width: 90%; height: 100%; background: #0e0e0e; border: 1px solid rgba(255,255,255,0.1); display: grid; grid-template-columns: 1fr 1.2fr; overflow: hidden; }
+        .card-item { position: sticky; top: 12vh; height: 75vh; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 15vh; }
+        .card-inner { width: 95%; height: 100%; background: #0a0a0a; border: 1px solid rgba(255,255,255,0.05); display: grid; grid-template-columns: 1fr 1.2fr; overflow: hidden; border-radius: 4px; }
         .card-content { padding: 4rem; display: flex; flex-direction: column; justify-content: space-between; }
         .card-img-wrap { position: relative; width: 100%; height: 100%; overflow: hidden; }
         .card-img { width: 100%; height: 100%; object-fit: cover; }
@@ -46,18 +53,18 @@
         <div class="loader-bar"></div>
     </div>
 
-    <nav class="fixed top-0 w-full p-8 flex justify-between items-center z-50 mix-blend-difference text-white">
-        <a href="#" class="display font-bold text-xl tracking-tighter">HOLMES</a>
+    <nav class="fixed top-0 w-full p-6 md:p-8 flex justify-between items-center z-50 text-white">
+        <a href="#" class="display font-bold text-xl tracking-tighter hover:opacity-50 transition-opacity">HOLMES</a>
         <div class="hidden md:flex gap-10 text-xs uppercase tracking-widest">
-            <a href="#work">Portfolio</a>
-            <a href="#studio">Studio</a>
-            <a href="#footer-trigger">Contact</a>
+            <a href="#work" class="hover:text-gray-400 transition-colors">Portfolio</a>
+            <a href="#studio" class="hover:text-gray-400 transition-colors">Studio</a>
+            <a href="#footer-trigger" class="hover:text-gray-400 transition-colors">Contact</a>
         </div>
     </nav>
 
     <div class="wrapper">
         <section class="h-screen relative flex items-center justify-center overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=3840" class="absolute inset-0 w-full h-full object-cover brightness-50 hero-img" alt="Holmes Hero">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=3840" class="absolute inset-0 w-full h-full object-cover brightness-[0.4] hero-img" alt="Holmes Hero">
             <div class="relative z-10 text-center text-white">
                 <h1 class="display text-[10vw] leading-none hero-text overflow-hidden">
                     <span class="block translate-y-full">HOLMES</span>
@@ -69,15 +76,15 @@
             </div>
         </section>
 
-        <section id="studio" class="py-32 px-6 md:px-20 grid md:grid-cols-2 gap-16 max-w-[1800px] mx-auto bg-white">
+        <section id="studio" class="py-40 px-6 md:px-20 grid md:grid-cols-2 gap-16 max-w-[1800px] mx-auto bg-black text-white">
             <div>
                 <h2 class="display text-4xl md:text-5xl leading-tight split-animate">
-                    Visionary <br><span class="text-gray-400">Structure.</span>
+                    Visionary <br><span class="text-gray-600">Structure.</span>
                 </h2>
             </div>
-            <div class="text-xl font-light leading-relaxed text-gray-700">
+            <div class="text-xl font-light leading-relaxed text-gray-400">
                 <p class="mb-8 split-animate">Holmes Architects delivers innovative design solutions that bridge the gap between historic context and modern living. Our studio is built on the philosophy that great architecture should be felt, not just seen.</p>
-                <div class="h-px w-full bg-black/10 my-8"></div>
+                <div class="h-px w-full bg-white/10 my-8"></div>
                 <div class="flex gap-12 text-sm uppercase tracking-widest split-animate">
                     <div>Chartered Practice</div>
                     <div>Est. 1989</div>
@@ -86,8 +93,8 @@
         </section>
 
         <section id="work" class="stack-section">
-            <div class="text-center mb-20 px-6">
-                <div class="text-xs uppercase tracking-widest mb-4 opacity-50">Project Portfolio</div>
+            <div class="text-center mb-24 px-6">
+                <div class="text-xs uppercase tracking-widest mb-4 text-gray-500">Project Portfolio</div>
                 <h2 class="display text-5xl md:text-7xl">STUDIO WORK</h2>
             </div>
             
@@ -100,7 +107,7 @@
                                 <h3 class="text-3xl font-bold uppercase">Modern Living</h3>
                                 <p class="text-sm mt-4 opacity-70 uppercase tracking-widest">Residential Excellence</p>
                             </div>
-                            <button class="text-left uppercase tracking-widest text-xs border-b border-white/30 pb-2 w-max">View Details</button>
+                            <button class="text-left uppercase tracking-widest text-xs border-b border-white/30 pb-2 w-max">View Project</button>
                         </div>
                         <div class="card-img-wrap">
                             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600" class="card-img" alt="Holmes 1">
@@ -116,7 +123,7 @@
                                 <h3 class="text-3xl font-bold uppercase">Commercial Hub</h3>
                                 <p class="text-sm mt-4 opacity-70 uppercase tracking-widest">Public Sector Innovation</p>
                             </div>
-                            <button class="text-left uppercase tracking-widest text-xs border-b border-white/30 pb-2 w-max">View Details</button>
+                            <button class="text-left uppercase tracking-widest text-xs border-b border-white/30 pb-2 w-max">View Project</button>
                         </div>
                         <div class="card-img-wrap">
                             <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600" class="card-img" alt="Holmes 2">
@@ -132,7 +139,7 @@
                                 <h3 class="text-3xl font-bold uppercase">Glass Pavilion</h3>
                                 <p class="text-sm mt-4 opacity-70 uppercase tracking-widest">Minimalist Geometry</p>
                             </div>
-                            <button class="text-left uppercase tracking-widest text-xs border-b border-white/30 pb-2 w-max">View Details</button>
+                            <button class="text-left uppercase tracking-widest text-xs border-b border-white/30 pb-2 w-max">View Project</button>
                         </div>
                         <div class="card-img-wrap">
                             <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600" class="card-img" alt="Holmes 3">
@@ -142,13 +149,13 @@
             </div>
         </section>
 
-        <div id="footer-trigger" class="h-10"></div> 
+        <div id="footer-trigger" class="h-20"></div> 
     </div>
 
     <footer class="footer-sticky">
-        <div class="relative z-10 text-center">
+        <div class="relative z-10 text-center px-6">
             <div class="text-xs uppercase tracking-[0.3em] mb-4 text-gray-500">Inquire with the Studio</div>
-            <a href="mailto:info@holmesarchitects.co.uk" class="display text-[8vw] leading-none hover:text-gray-400 transition-colors">
+            <a href="mailto:info@holmesarchitects.co.uk" class="display text-[7vw] md:text-[8vw] leading-none hover:text-gray-500 transition-colors">
                 START PROJECT
             </a>
             <div class="mt-20 text-[10px] text-gray-700 uppercase tracking-widest">
@@ -160,12 +167,10 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
         
-        // SMOOTH SCROLL
         const lenis = new Lenis({ duration: 1.2, smooth: true });
         function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
         requestAnimationFrame(raf);
 
-        // TEXT SPLITTING
         function splitTextToWords(element) {
             const text = element.innerText;
             const words = text.split(' ');
@@ -179,17 +184,14 @@
         }
         document.querySelectorAll('.split-animate').forEach(el => splitTextToWords(el));
 
-        // LOADER
         const loadTl = gsap.timeline({ onComplete: () => { document.body.style.opacity = 1; initSite(); } });
         loadTl.to('.loader-bar', { width: '100%', duration: 1, ease: 'power2.inOut' })
               .to('.loader', { yPercent: -100, duration: 0.8, ease: 'power4.inOut' });
 
         function initSite() {
-            // HERO ANIMATION
             gsap.to('.hero-text span', { y: 0, stagger: 0.1, duration: 1, ease: 'power4.out' });
             gsap.to('.hero-fade', { opacity: 1, duration: 1, delay: 0.5 });
 
-            // SCROLL REVEALS
             document.querySelectorAll('.split-animate').forEach(el => {
                 gsap.to(el.querySelectorAll('.word-inner'), { 
                     y: "0%", 
@@ -198,16 +200,14 @@
                 });
             });
 
-            // THE WOW STACK ANIMATION
             const cards = gsap.utils.toArray('.card-item');
             cards.forEach((card, i) => {
                 const inner = card.querySelector('.card-inner');
                 const nextCard = cards[i + 1];
-                
                 if (nextCard) {
                     gsap.to(inner, {
-                        scale: 0.9,
-                        opacity: 0.3,
+                        scale: 0.92,
+                        opacity: 0.2,
                         scrollTrigger: {
                             trigger: nextCard,
                             start: "top bottom",
@@ -221,3 +221,4 @@
     </script>
 </body>
 </html>
+

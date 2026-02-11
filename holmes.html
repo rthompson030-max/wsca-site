@@ -19,19 +19,22 @@
             --font-body: 'Manrope', sans-serif;
         }
         body { background-color: var(--c-bg); color: var(--c-dark); font-family: var(--font-body); margin: 0; overflow-x: hidden; opacity: 0; }
-        .wrapper { position: relative; z-index: 10; background-color: var(--c-bg); margin-bottom: 100vh; box-shadow: 0 50px 100px rgba(0,0,0,0.1); }
+        .wrapper { position: relative; z-index: 10; background-color: var(--c-bg); margin-bottom: 100vh; }
         .word-wrap { display: inline-block; overflow: hidden; vertical-align: top; }
         .word-inner { display: inline-block; transform: translateY(110%); }
         .loader { position: fixed; inset: 0; background: #000; z-index: 10000; display: flex; justify-content: center; align-items: center; color: #fff; }
         .loader-text { font-family: var(--font-display); font-size: 5vw; font-weight: 700; }
         .loader-bar { position: absolute; bottom: 0; left: 0; height: 4px; background: #fff; width: 0%; }
+        
+        /* THE WOW FACTOR STACK */
         .stack-section { padding: 10vh 0; background: #000000; color: #FFFFFF; position: relative; }
-        .stack-container { width: 100%; max-width: 1400px; margin: 0 auto; padding-bottom: 10vh; }
-        .card-item { position: sticky; top: 10vh; height: 80vh; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 5vh; }
-        .card-inner { width: 90%; height: 100%; background: #111; border: 1px solid rgba(255,255,255,0.1); display: grid; grid-template-columns: 1fr 1.2fr; overflow: hidden; }
+        .stack-container { width: 100%; max-width: 1400px; margin: 0 auto; }
+        .card-item { position: sticky; top: 10vh; height: 80vh; width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 10vh; }
+        .card-inner { width: 90%; height: 100%; background: #0e0e0e; border: 1px solid rgba(255,255,255,0.1); display: grid; grid-template-columns: 1fr 1.2fr; overflow: hidden; }
         .card-content { padding: 4rem; display: flex; flex-direction: column; justify-content: space-between; }
         .card-img-wrap { position: relative; width: 100%; height: 100%; overflow: hidden; }
-        .card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.5s ease; }
+        .card-img { width: 100%; height: 100%; object-fit: cover; }
+        
         .footer-sticky { position: fixed; bottom: 0; left: 0; width: 100%; height: 100vh; z-index: 1; background: #000; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; }
         .display { font-family: var(--font-display); }
     </style>
@@ -44,11 +47,11 @@
     </div>
 
     <nav class="fixed top-0 w-full p-8 flex justify-between items-center z-50 mix-blend-difference text-white">
-        <div class="display font-bold text-xl tracking-tighter">HOLMES</div>
+        <a href="#" class="display font-bold text-xl tracking-tighter">HOLMES</a>
         <div class="hidden md:flex gap-10 text-xs uppercase tracking-widest">
             <a href="#work">Portfolio</a>
             <a href="#studio">Studio</a>
-            <a href="#footer">Contact</a>
+            <a href="#footer-trigger">Contact</a>
         </div>
     </nav>
 
@@ -66,14 +69,14 @@
             </div>
         </section>
 
-        <section id="intro" class="py-32 px-6 md:px-20 grid md:grid-cols-2 gap-16 max-w-[1800px] mx-auto bg-white">
+        <section id="studio" class="py-32 px-6 md:px-20 grid md:grid-cols-2 gap-16 max-w-[1800px] mx-auto bg-white">
             <div>
                 <h2 class="display text-4xl md:text-5xl leading-tight split-animate">
                     Visionary <br><span class="text-gray-400">Structure.</span>
                 </h2>
             </div>
             <div class="text-xl font-light leading-relaxed text-gray-700">
-                <p class="mb-8 split-animate">Holmes Architects delivers innovative design solutions that bridge the gap between historic context and modern living.</p>
+                <p class="mb-8 split-animate">Holmes Architects delivers innovative design solutions that bridge the gap between historic context and modern living. Our studio is built on the philosophy that great architecture should be felt, not just seen.</p>
                 <div class="h-px w-full bg-black/10 my-8"></div>
                 <div class="flex gap-12 text-sm uppercase tracking-widest split-animate">
                     <div>Chartered Practice</div>
@@ -87,6 +90,7 @@
                 <div class="text-xs uppercase tracking-widest mb-4 opacity-50">Project Portfolio</div>
                 <h2 class="display text-5xl md:text-7xl">STUDIO WORK</h2>
             </div>
+            
             <div class="stack-container">
                 <div class="card-item">
                     <div class="card-inner">
@@ -103,6 +107,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="card-item">
                     <div class="card-inner">
                         <div class="card-content">
@@ -118,10 +123,26 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="card-item">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <div>
+                                <div class="text-5xl display mb-2 text-white opacity-10">03</div>
+                                <h3 class="text-3xl font-bold uppercase">Glass Pavilion</h3>
+                                <p class="text-sm mt-4 opacity-70 uppercase tracking-widest">Minimalist Geometry</p>
+                            </div>
+                            <button class="text-left uppercase tracking-widest text-xs border-b border-white/30 pb-2 w-max">View Details</button>
+                        </div>
+                        <div class="card-img-wrap">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600" class="card-img" alt="Holmes 3">
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <div id="footer"></div> 
+        <div id="footer-trigger" class="h-10"></div> 
     </div>
 
     <footer class="footer-sticky">
@@ -138,10 +159,13 @@
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
+        
+        // SMOOTH SCROLL
         const lenis = new Lenis({ duration: 1.2, smooth: true });
         function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
         requestAnimationFrame(raf);
 
+        // TEXT SPLITTING
         function splitTextToWords(element) {
             const text = element.innerText;
             const words = text.split(' ');
@@ -155,21 +179,42 @@
         }
         document.querySelectorAll('.split-animate').forEach(el => splitTextToWords(el));
 
+        // LOADER
         const loadTl = gsap.timeline({ onComplete: () => { document.body.style.opacity = 1; initSite(); } });
         loadTl.to('.loader-bar', { width: '100%', duration: 1, ease: 'power2.inOut' })
               .to('.loader', { yPercent: -100, duration: 0.8, ease: 'power4.inOut' });
 
         function initSite() {
+            // HERO ANIMATION
             gsap.to('.hero-text span', { y: 0, stagger: 0.1, duration: 1, ease: 'power4.out' });
             gsap.to('.hero-fade', { opacity: 1, duration: 1, delay: 0.5 });
+
+            // SCROLL REVEALS
             document.querySelectorAll('.split-animate').forEach(el => {
-                gsap.to(el.querySelectorAll('.word-inner'), { y: "0%", duration: 1, scrollTrigger: { trigger: el, start: "top 85%" } });
+                gsap.to(el.querySelectorAll('.word-inner'), { 
+                    y: "0%", 
+                    duration: 1, 
+                    scrollTrigger: { trigger: el, start: "top 85%" } 
+                });
             });
+
+            // THE WOW STACK ANIMATION
             const cards = gsap.utils.toArray('.card-item');
             cards.forEach((card, i) => {
-                const nextCard = cards[i+1];
+                const inner = card.querySelector('.card-inner');
+                const nextCard = cards[i + 1];
+                
                 if (nextCard) {
-                    gsap.to(card.querySelector('.card-inner'), { scale: 0.9, opacity: 0.4, scrollTrigger: { trigger: nextCard, start: "top bottom", end: "top 10vh", scrub: true } });
+                    gsap.to(inner, {
+                        scale: 0.9,
+                        opacity: 0.3,
+                        scrollTrigger: {
+                            trigger: nextCard,
+                            start: "top bottom",
+                            end: "top 10%",
+                            scrub: true
+                        }
+                    });
                 }
             });
         }

@@ -56,7 +56,6 @@
     </nav>
 
     <div class="wrapper">
-        
         <section class="h-screen relative flex items-center justify-center overflow-hidden">
             <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/482e7b6a-168c-4d0d-b35d-0e2ff4014577_3840w.webp" class="absolute inset-0 w-full h-full object-cover brightness-75 hero-img" alt="Hero">
             <div class="relative z-10 text-center text-white mix-blend-difference">
@@ -91,7 +90,6 @@
                 <div class="text-xs uppercase tracking-widest mb-4 opacity-50">Selected Portfolio</div>
                 <h2 class="display text-5xl md:text-7xl">WSCA PROJECTS</h2>
             </div>
-
             <div class="stack-container">
                 <div class="card-item">
                     <div class="card-inner">
@@ -108,7 +106,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card-item">
                     <div class="card-inner">
                         <div class="card-content">
@@ -151,10 +148,11 @@
             <h2 class="display text-3xl md:text-5xl mb-8 uppercase">Designing the Future</h2>
             <div class="h-16 w-px bg-black/20"></div>
         </section>
+        
+        <div id="footer"></div> 
+    </div>
 
-    </div>> Replace this closing div with: <div id="footer"></div> 
-
-    <footer  class="footer-sticky">
+    <footer class="footer-sticky">
         <div class="relative z-10 text-center">
             <div class="text-xs uppercase tracking-[0.3em] mb-4 text-gray-500">Contact the Society</div>
             <a href="mailto:mail@ribaworcestershire.co.uk" class="display text-[8vw] leading-none hover:text-gray-400 transition-colors">
@@ -179,37 +177,6 @@
             element.innerHTML = '';
             words.forEach(word => {
                 const wordWrap = document.createElement('span');
-                wordWrap.classList.add('word-wrap');
-                wordWrap.innerHTML = `<span class="word-inner">${word}&nbsp;</span>`;
-                element.appendChild(wordWrap);
-            });
-        }
-
-        document.querySelectorAll('.split-animate').forEach(el => splitTextToWords(el));
-
-        const loadTl = gsap.timeline({ onComplete: () => { document.body.style.opacity = 1; initSite(); } });
-        loadTl.to('.loader-bar', { width: '100%', duration: 1.5, ease: 'power2.inOut' })
-              .to('.loader-text', { y: -50, opacity: 0, duration: 0.5 })
-              .to('.loader', { yPercent: -100, duration: 1, ease: 'power4.inOut' });
-
-        function initSite() {
-            gsap.to('.hero-text span', { y: 0, stagger: 0.1, duration: 1.5, ease: 'power4.out' });
-            gsap.to('.hero-fade', { opacity: 1, duration: 1, delay: 0.5 });
-            gsap.to('.hero-img', { yPercent: 30, ease: 'none', scrollTrigger: { trigger: '.hero-img', start: 'top top', end: 'bottom top', scrub: true } });
-            document.querySelectorAll('.split-animate').forEach(el => {
-                gsap.to(el.querySelectorAll('.word-inner'), { y: "0%", duration: 1, ease: "power3.out", stagger: 0.02, scrollTrigger: { trigger: el, start: "top 85%" } });
-            });
-            const cards = gsap.utils.toArray('.card-item');
-            cards.forEach((card, i) => {
-                const nextCard = cards[i+1];
-                if (nextCard) {
-                    gsap.to(card.querySelector('.card-inner'), { scale: 0.9, opacity: 0.4, ease: "none", scrollTrigger: { trigger: nextCard, start: "top bottom", end: "top 10vh", scrub: true } });
-                }
-            });
-        }
-    </script>
-</body>
-</html>
                 wordWrap.classList.add('word-wrap');
                 wordWrap.innerHTML = `<span class="word-inner">${word}&nbsp;</span>`;
                 element.appendChild(wordWrap);

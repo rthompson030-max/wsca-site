@@ -514,8 +514,8 @@
         <a href="/wsca-site/" class="display font-bold text-xl tracking-tighter">WSCA</a>
         <div class="hidden md-flex gap-6 text-xs uppercase tracking-widest items-center"
             style="position: absolute; left: 50%; transform: translateX(-50%);">
-            <a href="#work">Work</a>
-            <a href="#society">Society</a>
+            <a href="/wsca-site/#work">Work</a>
+            <a href="/wsca-site/#society">Society</a>
             <a href="/wsca-site/" class="nav-contact-btn">Contact</a>
         </div>
     </nav>
@@ -688,6 +688,13 @@
                     window.scrollTo({ top: 0, behavior: 'instant' });
                 });
             });
+
+            // Remove hash from URL after page load jump
+            if (window.location.hash) {
+                setTimeout(() => {
+                    history.replaceState(null, null, window.location.pathname);
+                }, 100);
+            }
         }
 
         window.addEventListener('DOMContentLoaded', initAnimations);

@@ -516,7 +516,7 @@
             style="position: absolute; left: 50%; transform: translateX(-50%);">
             <a href="#work">Work</a>
             <a href="#society">Society</a>
-            <a href="#footer-anchor" class="nav-contact-btn">Contact</a>
+            <a href="/wsca-site/" class="nav-contact-btn">Contact</a>
         </div>
     </nav>
 
@@ -679,15 +679,15 @@
 
             // Scroll animations disabled to prevent jumps and delays as requested
 
-            // Logo Link: Scroll to top instantly instead of reloading 
+            // Logo & Homepage Links: Scroll to top instantly instead of reloading 
             // This prevents the 'black screen' flash caused by page refresh
-            const logoLink = document.querySelector('a[href="/wsca-site/"]');
-            if (logoLink) {
-                logoLink.addEventListener('click', (e) => {
+            const homeLinks = document.querySelectorAll('a[href="/wsca-site/"]');
+            homeLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
                     e.preventDefault();
                     window.scrollTo({ top: 0, behavior: 'instant' });
                 });
-            }
+            });
         }
 
         window.addEventListener('DOMContentLoaded', initAnimations);

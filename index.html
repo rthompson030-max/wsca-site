@@ -21,7 +21,7 @@
 
         /* Base Styles */
         html {
-            scroll-behavior: smooth;
+            /* scroll-behavior: smooth; removed to prevent jumps */
         }
 
         body {
@@ -307,45 +307,6 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
         }
 
-        .loader {
-            position: fixed;
-            inset: 0;
-            background: #000;
-            z-index: 10000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            animation: hideLoader 1s cubic-bezier(0.76, 0, 0.24, 1) 1.5s forwards;
-        }
-
-        @keyframes hideLoader {
-            to {
-                transform: translateY(-100%);
-            }
-        }
-
-        .loader-text {
-            font-family: var(--font-display);
-            font-size: 5vw;
-            font-weight: 700;
-        }
-
-        .loader-bar {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            height: 4px;
-            background: #fff;
-            width: 0%;
-            animation: loadProgress 1.5s ease-in-out forwards;
-        }
-
-        @keyframes loadProgress {
-            to {
-                width: 100%;
-            }
-        }
 
         .wrapper {
             position: relative;
@@ -546,10 +507,6 @@
 
     <div class="noise-overlay"></div>
 
-    <div class="loader">
-        <div class="loader-text uppercase">WSCA</div>
-        <div class="loader-bar"></div>
-    </div>
 
     <nav class="fixed top-0 w-full flex justify-between items-center z-50 mix-blend-difference text-white"
         style="padding-left: 5rem; padding-right: 10rem; padding-top: 2rem; padding-bottom: 2rem;">
@@ -719,31 +676,7 @@
 
             document.querySelectorAll('.split-animate').forEach(el => observer.observe(el));
 
-            // Hero Parallax (simplified)
-            const heroImg = document.querySelector('.hero-img');
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                if (scrolled < window.innerHeight) {
-                    heroImg.style.transform = `translateY(${scrolled * 0.3}px)`;
-                }
-            }, { passive: true });
-
-            // Card Stacking Effect (simplified scale/opacity)
-            const cards = document.querySelectorAll('.card-item');
-            window.addEventListener('scroll', () => {
-                cards.forEach((card, i) => {
-                    if (i === cards.length - 1) return;
-                    const rect = card.getBoundingClientRect();
-                    const nextCard = cards[i + 1].getBoundingClientRect();
-
-                    if (nextCard.top < window.innerHeight) {
-                        const progress = 1 - Math.max(0, Math.min(1, (window.innerHeight - nextCard.top) / window.innerHeight));
-                        const inner = card.querySelector('.card-inner');
-                        inner.style.transform = `scale(${0.9 + (progress * 0.1)})`;
-                        inner.style.opacity = 0.4 + (progress * 0.6);
-                    }
-                });
-            }, { passive: true });
+            // Scroll animations disabled to prevent jumps and delays as requested
         }
 
         window.addEventListener('DOMContentLoaded', initAnimations);

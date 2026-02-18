@@ -22,6 +22,7 @@
         /* Base Styles */
         html {
             /* scroll-behavior: smooth; removed to prevent jumps */
+            background-color: var(--c-bg);
         }
 
         body {
@@ -677,6 +678,16 @@
             document.querySelectorAll('.split-animate').forEach(el => observer.observe(el));
 
             // Scroll animations disabled to prevent jumps and delays as requested
+
+            // Logo Link: Scroll to top instantly instead of reloading 
+            // This prevents the 'black screen' flash caused by page refresh
+            const logoLink = document.querySelector('a[href="/wsca-site/"]');
+            if (logoLink) {
+                logoLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'instant' });
+                });
+            }
         }
 
         window.addEventListener('DOMContentLoaded', initAnimations);
